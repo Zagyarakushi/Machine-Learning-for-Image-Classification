@@ -1,93 +1,156 @@
 # Machine Learning for Image Classification
 
+A machine learning project exploring image classification using feature extraction, dimensionality reduction, traditional machine learning algorithms and deep learning.
+
+The project investigates different approaches to image recognition, comparing learned representations from convolutional neural networks, transfer learning and Vision Transformers.
+
+## Overview
+
+Image classification involves assigning images to predefined categories based on their visual content. This project explores how different feature representations and machine learning architectures affect classification performance.
+
+The project covers:
+
+- Image dataset exploration and preprocessing.
+- Feature extraction using Histogram of Oriented Gradients (HOG).
+- Dimensionality reduction using Principal Component Analysis (PCA).
+- Traditional machine learning classifiers.
+- Convolutional Neural Networks (CNNs).
+- Transfer learning using MobileNetV2.
+- Vision Transformers (ViT).
+- Model evaluation and performance comparison.
+
+**Project status:** University project / experimental research.
+
+## Screenshots
+
+![PCA](screenshots/pca.png)
+
+![Example Result](screenshots/example_result.png)
+
+![Accuracy and Loss](screenshots/accuracy_and_loss.png)
 
 
-## Getting started
+## Dataset
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+The project uses an image dataset for supervised classification experiments.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Images are processed into suitable representations for traditional machine learning and deep learning approaches.
 
-## Add your files
+Dataset details:
 
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+- **Task:** Image classification.
+- **Input:** Digital images.
+- **Features:** HOG descriptors and learned image representations.
+- **Dimensionality reduction:** PCA, where applicable.
+- **Target:** Image class labels.
+- **Dataset source:** Sushi and Swords from Voxel51 https://docs.voxel51.com/user_guide/using_datasets.html
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/zagyarakushi/machine-learning-for-image-classification.git
-git branch -M main
-git push -uf origin main
-```
+## Feature Engineering
 
-## Integrate with your tools
+The project explores different approaches to representing images for classification.
 
-* [Set up project integrations](https://gitlab.com/zagyarakushi/machine-learning-for-image-classification/-/settings/integrations)
+- **Histogram of Oriented Gradients (HOG):** Represents local image structure using gradient orientations.
+- **Principal Component Analysis (PCA):** Reduces feature dimensionality while retaining as much variance as possible.
+- **Image preprocessing:** Prepares images for consistent feature extraction and model input.
+- **Learned representations:** Deep learning models learn visual features directly from images.
 
-## Collaborate with your team
+These approaches allow comparisons between manually engineered features and representations learned during training.
 
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+## Models
 
-## Test and Deploy
+The experiments explore traditional machine learning algorithms and deep learning architectures.
 
-Use the built-in continuous integration in GitLab.
+| Model family | Models |
+|---|---|
+| Traditional machine learning | K-Nearest Neighbours (KNN), Decision Tree, Random Forest, SGD classifier |
+| Neural networks | Multilayer Perceptron (MLP), Convolutional Neural Network (CNN) |
+| Transfer learning | MobileNetV2 |
+| Transformer-based models | Vision Transformer (ViT) |
 
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
+Traditional classifiers can be evaluated using handcrafted features such as HOG, with PCA applied where appropriate. Deep learning models can learn visual representations directly from image data.
 
-***
+## Methodology
 
-# Editing this README
+The general workflow consists of:
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+1. Loading and exploring the image dataset.
+2. Inspecting class distributions and image characteristics.
+3. Preprocessing images into a consistent format.
+4. Extracting HOG features and applying PCA where appropriate.
+5. Training traditional machine learning classifiers.
+6. Training or fine-tuning deep learning models.
+7. Evaluating predictions on held-out test data.
+8. Comparing performance and analysing misclassified examples.
 
-## Suggestions for a good README
+Training, validation and test data should be separated appropriately. Test data should not be used for hyperparameter tuning or model selection.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## Evaluation
 
-## Name
-Choose a self-explaining name for your project.
+Model performance should be assessed using appropriate classification metrics.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Possible metrics include:
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+- **Accuracy:** Proportion of correctly classified images.
+- **Precision:** Proportion of positive predictions that are correct.
+- **Recall:** Proportion of actual positive examples correctly identified.
+- **F1-score:** Harmonic mean of precision and recall.
+- **Confusion matrix:** Breakdown of correct and incorrect predictions by class.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+For multiclass classification, specify the averaging method used for precision, recall and F1-score.
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+
+Clone the repository:
+
+```bash
+git clone https://github.com/zagyarakushi/machine-learning-image-classification.git
+cd machine-learning-image-classification
+```
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Explore the project notebooks to inspect the dataset, run preprocessing and feature extraction, train models and evaluate classification performance.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Refer to the notebooks for the implemented experiments and their specific execution requirements.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+## Limitations
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+- Classification performance depends on dataset size, quality, class balance and diversity.
+- Models may perform differently on images outside the training distribution.
+- Results can be affected by preprocessing, feature selection and hyperparameter tuning.
+- Comparisons depend on consistent data splits and evaluation procedures.
+- Transfer learning results depend on the pretrained weights and fine-tuning configuration.
+- Computational requirements vary between traditional classifiers, CNNs and Vision Transformers.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+## Future Improvements
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Potential extensions include:
 
-## License
-For open source projects, say how it is licensed.
+- Systematic hyperparameter optimisation.
+- Class-wise performance and error analysis.
+- Experiments with data augmentation.
+- Evaluation on additional datasets.
+- Comparison of inference speed and model size.
+- Reproducible experiments using fixed random seeds.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Technologies
+
+- Python
+- NumPy
+- pandas
+- scikit-learn
+- TensorFlow / Keras
+- Matplotlib
+- Seaborn
+- Jupyter Notebook
+
+## Disclaimer
+
+This repository documents educational machine learning experiments. Results should be interpreted in the context of the dataset, experimental setup and evaluation methodology.
+
+## Author
+
+**Charles Buckley**
+
+- GitHub: https://github.com/zagyarakushi
+- GitLab: https://gitlab.com/zagyarakushi
