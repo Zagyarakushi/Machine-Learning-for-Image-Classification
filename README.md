@@ -144,7 +144,5 @@ This repository documents educational machine learning experiments. Results shou
 
 ## Author
 
-**Charles Buckley**
-
 - GitHub: https://github.com/zagyarakushi
 - GitLab: https://gitlab.com/zagyarakushi
