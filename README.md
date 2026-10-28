@@ -67,8 +67,6 @@ The experiments explore traditional machine learning algorithms and deep learnin
 | Transfer learning | MobileNetV2 |
 | Transformer-based models | Vision Transformer (ViT) |
 
-Traditional classifiers can be evaluated using handcrafted features such as HOG, with PCA applied where appropriate. Deep learning models can learn visual representations directly from image data.
-
 ## Methodology
 
 The general workflow consists of:
@@ -82,8 +80,6 @@ The general workflow consists of:
 7. Evaluating predictions on held-out test data.
 8. Comparing performance and analysing misclassified examples.
 
-Training, validation and test data should be separated appropriately. Test data should not be used for hyperparameter tuning or model selection.
-
 ## Evaluation
 
 Model performance should be assessed using appropriate classification metrics.
@@ -95,8 +91,6 @@ Possible metrics include:
 - **Recall:** Proportion of actual positive examples correctly identified.
 - **F1-score:** Harmonic mean of precision and recall.
 - **Confusion matrix:** Breakdown of correct and incorrect predictions by class.
-
-For multiclass classification, specify the averaging method used for precision, recall and F1-score.
 
 ## Installation
 
